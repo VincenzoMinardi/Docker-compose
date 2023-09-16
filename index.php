@@ -7,15 +7,17 @@ $connect = mysqli_connect(
     'php_docker'
 );
 
-$table_name = "Test-docker";
-
+$table_name = "php_docker_table";
 
 $query = "SELECT * FROM $table_name";
 
 $response = mysqli_query($connect, $query);
 
 echo "<strong> $table_name: </strong>";
-while ($row = mysqli_fetch_assoc($response)) {
-    echo "<p>" . $row['name'] . "</p>";
-    echo "<p>" . $row['lastname'] . "</p>";
+while ($i = mysqli_fetch_assoc($response)) {
+
+    echo "<p>" . $i['name'] . "</p>";
+    echo "<p>" . $i['lastname'] . "</p>";
 }
+
+mysqli_close($connect);
